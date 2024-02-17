@@ -459,67 +459,6 @@ fig = px.scatter(merged_data, x='total_payment', y='order_item_id', color='clust
                  title='Klastering Pelanggan Berdasarkan Perilaku Pembelian')
 st.plotly_chart(fig)
 
-#ryan
-    
-    def analisisRyan(data_customer,data_produk,data_order,data_order_item):
-
-        # Mencari jumlah product
-        product_category_name = data_produk['product_category_name'].value_counts()
-
-        # Mengurutkan dan mencari 10 kategori produk yang paling banyak dipesan
-        product_category_name_head = product_category_name.head(10)
-
-        #==========================================================================
-        
-        st.caption("**10122479 - Ryan Akbar Ramadhan**")
-        st.subheader("Informasi Analisis")
-        st.markdown("**Analisis Terhadap 10 Kategori Produk Yang Paling Banyak dipesan**")
-        with st.expander("Tujuan Analisis Infomasi Tersebut"):
-            st.write("Dengan mengetahui kategori produk yang paling banyak dipesan, Anda dapat mengalokasikan sumber daya anda agar lebih efisien untuk kategori produk yang paling banyak.")
-            st.write("Analisis ini dapat membantu Anda memahami dinamika pasar Anda dengan lebih baik.")
-
-        #===========================================================================
-        st.markdown("---")
-        st.subheader("Grafik 10 Kategori Produk Dengan Order Paling Banyak")
-
-        warna = ['green','lightgreen','lightgreen','lightgreen','yellow']
-
-        # Plot seller
-        plt.bar(product_category_name_head.index, product_category_name_head.values, color=warna)
-        plt.xticks(product_category_name_head.index, rotation=90)
-        plt.title('10 Kategori Produk Yang Paling Banyak')
-
-        col1,col2 = st.columns(2)
-        with col1:
-            st.write("**Top 5 Penjual Terbanyak**")
-            st.dataframe(product_category_name)
-
-        # Menampilkan Visualisasi
-        st.pyplot(plt)
-        
-        with st.expander("Penjelasan Mengenai Visualisasi"):
-            st.write("Sao Paulo adalah kota dengan jumlah penjual terbanyak, dengan total 694 penjual. Ini menunjukkan bahwa Sao Paulo adalah pusat utama aktivitas penjualan. Curitiba dan Rio de Janeiro berada di posisi kedua dan ketiga, dengan 127 dan 96 penjual masing-masing. Meskipun jumlahnya jauh lebih rendah dibandingkan dengan Sao Paulo, kedua kota ini masih menunjukkan aktivitas penjualan yang signifikan.")
-            st.write("Di sisi lain, Belo Horizonte dan Ribeirao Preto memiliki jumlah penjual yang lebih sedikit, dengan 68 dan 52 penjual masing-masing. Ini mungkin menunjukkan bahwa ada ruang untuk pertumbuhan di kedua kota ini. Secara keseluruhan, data ini menunjukkan bahwa sebagian besar penjual Anda berada di Sao Paulo, sementara kota-kota lainnya memiliki jumlah penjual yang jauh lebih sedikit. Anda mungkin ingin mempertimbangkan strategi untuk menjangkau penjual potensial di kota-kota dengan jumlah penjual yang lebih rendah.")
-        #==============================================================================
-
-        st.markdown("---")
-        st.subheader("Grafik 5 Kota dengan Customer Terbanyak")
-        col3,col4 = st.columns(2)
-        with col3:
-            st.write("**Top 5 Penjual Terbanyak**")
-            st.dataframe(customer_city_head)
-        with col4:
-            st.write("**Top 5 Penjual Paling Dedikit**")
-            st.dataframe(customer_city_tail)
-
-        # Display the plot in Streamlit
-        st.pyplot(plt)
-
-        with st.expander("Penjelasan Mengenai Visualisasi"):
-            st.write("Berdasarkan visualisasi, Sao Paulo adalah kota dengan jumlah pelanggan terbanyak, dengan total 15,540 pelanggan. Jumlah ini jauh melampaui kota lainnya, menunjukkan bahwa Sao Paulo adalah pusat utama aktivitas pelanggan Anda. Rio de Janeiro berada di posisi kedua dengan 6,882 pelanggan, namun jumlah ini masih jauh di bawah Sao Paulo.")
-            st.write("Di sisi lain, Curitiba, Brasilia, dan Belo Horizonte memiliki jumlah pelanggan yang lebih sedikit, dengan 1,521, 2,131, dan 2,773 pelanggan masing-masing. Meskipun jumlahnya lebih rendah, ini menunjukkan bahwa ada peluang untuk pertumbuhan di ketiga kota ini. Secara keseluruhan, data ini menunjukkan bahwa sebagian besar pelanggan Anda berada di Sao Paulo dan Rio de Janeiro, sementara kota-kota lainnya memiliki jumlah pelanggan yang jauh lebih sedikit. ")
-
-    analisisRyan(data_customer,data_produk,data_order,data_order_item)
 
 
 
