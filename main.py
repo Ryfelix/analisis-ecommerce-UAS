@@ -383,6 +383,41 @@ with tab3:
 
     analisis_farras(data_customer,data_sellers)
 
+    #Ryan
+    
+    #Mencari jumlah customer di berbagai provinsi
+    customer_state = data_customer['customer_state'].value_counts()
+    
+    # Mengurutkan dan mencari 10 kota teratas dengan customer terbanyak
+    customer_state_head = customer_state.head(10)
+    
+    st.caption("**10122479 - Ryan Akbar Ramadhan**")
+    st.subheader("Informasi Analisis")
+    st.markdown("**Analisis Terhadap Jumlah Pelanggan dari berbagai provinsi**")
+    with st.expander("Tujuan Analisis Infomasi Tersebut"):
+        st.write("Akan dapat diketahui berapa banyak pelanggan dari berbagai provinsi, kita dapat menggunakan informasi ini untuk mengupayakan agar meningkatkan pemasaran di provinsi yang jumlah pelanggannya sedikit")
+    
+    #===========================================================================
+    st.markdown("---")
+    st.subheader("Grafik Jumlah Pelanggan dari berbagai provinsi")
+    
+    # Plot customer
+    warnaBar = ['#00563B','darkgreen','green','#02a633','lightgreen']
+    plt.title('10 Provinsi Beserta Pelanggannya')
+    plt.bar(customer_state_head.index, customer_state_head.values, color=warnaBar)
+    plt.xticks(customer_state_head.index, rotation=0)
+    
+    st.write("**Provinsi Beserta Jumlah Pelanggannya**")
+    st.dataframe(customer_state)
+    
+    # Menampilkan Visualisasi
+    st.pyplot(plt)
+    
+    with st.expander("Penjelasan Mengenai Visualisasi"):
+        st.write("Dapat dilihat pada grafik bahwa, Provinsi SP merupakan Provinsi yang memiliki jumlah pelanggan paling banyak, yaitu sebanyak 41.746 Pelanggan.")
+        st.write("Jumlah Pelanggan tersebut hampir 4 kali lipat dari jumlah pelanggan yang ada di Provinsi RJ dan MG, Perbedaan yang sangat tinggi dibandingkan jumlah pelanggan di provinsi lainnya.")
+    #==============================================================================
+
 
 with tab2:
     
